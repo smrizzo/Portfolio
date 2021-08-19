@@ -1,5 +1,6 @@
-# Getting Started with Create React App
-https://travis-ci.com/smrizzo/Portfolio.svg?branch=main
+# Scott Rizzo Portfolio 
+![alt text](https://travis-ci.com/smrizzo/Portfolio.svg?branch=main)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
