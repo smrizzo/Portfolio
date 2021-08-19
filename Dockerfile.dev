@@ -1,0 +1,27 @@
+FROM node:alpine
+
+USER node
+
+RUN mkdir -p /home/node/app
+WORKDIR /home/node/app
+
+COPY --chown=node:node ./package.json ./
+RUN npm install
+COPY --chown=node:node ./ ./
+ 
+CMD ["npm", "run", "start"]
+
+
+
+# Copies over the project to the root of /app in the docker container
+# Need to make use of Volumes
+# Puts a reference to the /src and /public folders instead of copying them over 
+# docker run -p 3000:3000 -v $(pwd):/app
+
+#docker attach always attaches to the main process of the container
+# this is why when we attach to the container containing our test we are not able to pass input
+# this is because npm run test creates a new process which has a different stdin that we are not attached to
+
+#multi-step build process
+#Build Phase
+#Run Phase
