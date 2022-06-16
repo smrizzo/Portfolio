@@ -12,10 +12,10 @@ script:
 deploy:
   provider: elasticbeanstalk
   region: "us-east-2"
-  app: "docker-portfolio"
+  app: "docker-porfolio"
   env: "Dockerportfolio-env"
   bucket_name: "elasticbeanstalk-us-east-2-496368466765"
-  bucket_path: "docker-portfolio"
+  bucket_path: "docker-porfolio"
   on:
     branch: master
   access_key_id: $AWS_ACCESS_KEY
