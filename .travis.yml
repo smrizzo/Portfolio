@@ -1,0 +1,22 @@
+language: generic
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t smrizzo/portfolio -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true smrizzo/portfolio npm run test
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-2"
+  app: "docker-portfolio"
+  env: "Dockerportfolio-env"
+  bucket_name: "elasticbeanstalk-us-east-2-496368466765"
+  bucket_path: "docker-portfolio"
+  on:
+    branch: main
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: "$AWS_SECRET_KEY"
